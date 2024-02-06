@@ -1,38 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap');
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0 0 0 0;
+    padding:0 0 0 0;
+    font-weight: inherit;
+    font-size: inherit;
+
+}
+
+@media screen and (max-width:425px) {
+        .forecast__blocks {
+            flex-direction: column;
+        }
+    .weatherApp__details-block {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        z-index: 999;
+        background-color: white;
+    }
+    .weatherApp__wrapper-active {
+        padding: 0;
+    }
+}
+p {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+
+}
+html {
+    padding: 0 0 0 0;
+    margin:0 0 0 0;
+}
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Montserrat';
+    gap: 5px;
+    height: 100%;
+}
+.weatherApp {
+    border: 2px solid teal;
+    padding: 15px;
+    border-radius: 10px;
+}
+.weatherApp__location {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+.weatherApp__weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.weather__icon {
+    width: 128px;
+    height: 128px;
+}
+.weather__text {
+    font-size: 22px;
+    font-weight: 700;
+}
+.weather__deg {
+    font-size: 20px;
+}
+.weather__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weatherApp-mini {
+    border: 2px solid teal;
+    padding: 10px;
+    border-radius: 5px;
+    flex: 1 1;
+}
+.weatherApp-mini__location {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+.weatherApp-mini__weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.weather-mini__icon {
+    width: 64px;
+    height: 64px;
+}
+.weather-mini__text {
+    font-size: 18px;
+    font-weight: 600;
+}
+.weather-mini__deg {
+    font-size: 20px;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    text-align: center;
+}
+.weather-mini__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.forecast__blocks {
+    display: flex;
+    gap: 5px;
+}
+.weatherForecast {
+    flex: 1 1;
+}
+.weatherApp__more {
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0 0;
+    cursor: pointer;
+    transition: 0.2s ease all;
+    user-select: none;
+    justify-self: flex-end;
+}
+.weatherApp__more-active {
+    transform: rotate(180deg);
+    margin: 8px 0 0 0;
+}
+.more__img-icon {
+    width: 18px;
+    height: 18px;
+}
+.details__body {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.weatherApp__details-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+}
+.details__last-updated {
+    font-size: 20px;
+    font-weight: 600;
+}
+.weatherApp__details-block {
+    border: 2px solid teal;
+    border-radius: 10px;
+    padding: 10px;
+}
+.weatherApp__wrapper {
+    display: flex;
+    gap: 10px;
+}
+/*.weatherApp__wrapper-active {*/
+/*    padding: 0 0 0 335px;*/
+/*}*/
+.weatherApp__details {
+    display: none;
+}
+.weatherApp__details-active {
+    display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.language-switcher {
+    border: 2px solid teal;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 46px;
+    display: flex;
+    overflow: hidden;
+    gap: 7px;
+    cursor: pointer;
+    user-select: none;
+    justify-self: flex-end;
 }
+.language-switcher__block {
+    transform: translate(8px);
+    transition: 0.2s ease all;
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.language-switcher__block-active {
+    transition: 0.2s ease all;
+    transform: translate(-37px);
 }
