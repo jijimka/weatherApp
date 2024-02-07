@@ -9,6 +9,7 @@ import MySelect from "./UI/select/MySelect";
 import WeatherForecast from "./components/WeatherForecast";
 import {fetchForecastAction} from "./store/reducers/forecastReducer";
 import WeatherMainBlock from "./components/WeatherMainBlock";
+import Loading from "./UI/loading/Loading";
 
 const App = () => {
     const dispatch = useDispatch()
@@ -58,12 +59,12 @@ const App = () => {
         lastUpdated = 'last updated',
     }
 
-    useEffect(() => {
+    useEffect( () => {
         fetchWeather()
     }, [locationName, language])
 
     async function fetchWeather() {
-        const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=e9367fc96026409998b94426242801&q=${locationName}&days=7&aqi=no&alerts=no&lang=${language ? 'eng' : 'ru'}`)
+        const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=e9367fc96026409998b94426242801&q=${locationName}&days=7&aqi=no&alerts=no&lang=${language ? 'eng' : 'ru'}`)
         dispatch(fetchWeatherAction(response.data.current))
         dispatch(fetchLocationAction(response.data.location))
         dispatch(fetchForecastAction(response.data.forecast.forecastday))
@@ -84,7 +85,7 @@ const App = () => {
         setLocationName(e.target.value)
     }
 
-    if (loading) return <h1>Loading</h1>
+    if (loading) return <Loading/>
     return (
         <div className='App'>
             <WeatherMainBlock location={location}
